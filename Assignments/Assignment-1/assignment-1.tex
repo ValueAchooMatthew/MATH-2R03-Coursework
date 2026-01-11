@@ -1,0 +1,216 @@
+\documentclass[10pt]{article}
+\usepackage{braket}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{mathtools}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.text}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xltabular}
+\usepackage{color}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\title{COMPSCI 3AC3 - Assignment 1}
+\author{Matthew Farah, \href{mailto:farahm11@mcmaster.ca}{$\langle$farahm11@mcmaster.ca$\rangle$}, 400468251}
+\date{\today}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=blue,
+	citecolor=blue,
+	anchorcolor=blue
+}
+
+\fancyhead{}
+\fancyhead[L]{Matthew Farah, \href{mailto:farahm11@mcmaster.ca}{$\langle$farahm11@mcmaster.ca$\rangle$}, 400468251}
+\fancyhead[R]{COMPSCI 3AC3 - Assignment 1}
+
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+
+\setlength{\parindent}{0cm}
+
+\setcounter{tocdepth}{3}
+\hypersetup{bookmarksopen=true, bookmarksopenlevel=2, bookmarksdepth=3}
+
+\newcounter{chapter}
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\newenvironment{chaptertitle}{
+	\newpage
+	\refstepcounter{chapter}
+	\begin{center}
+	\vspace*{.5em}
+	\par
+	\Large
+	Part \thechapter
+	\phantomsection
+	\addcontentsline{toc}{section}{\protect{\large{Part \thechapter}}}
+}{
+	\end{center}
+	\vspace{2.5em}
+}
+
+\newcounter{question}
+\renewcommand{\thequestion}{\arabic{question}}
+
+\newenvironment{question}{
+	\refstepcounter{question}
+	\phantomsection
+	\addcontentsline{toc}{subsection}{\protect{\large{Question \thequestion}}}
+	\vspace{1em}
+	\par
+	\large\textbf{Question \thequestion}
+	\vspace{.2cm}
+	\par
+	\setcounter{subquestion}{0}
+	\setcounter{step}{0}
+}{\vspace{.5em}}
+
+\newenvironment{solution}{
+	\vspace{1em}\par\large\textbf{{Solution:}}\par\vspace{1em}
+}{
+	\vspace{1em}
+}
+
+\newcounter{subquestion}
+\renewcommand{\thesubquestion}{\alph{subquestion}}
+
+\newenvironment{subquestion}{
+	\refstepcounter{subquestion}
+	\phantomsection
+	\vspace{1em}\par\large\textbf{(\thesubquestion)}\hspace{-.5em}
+	\setcounter{step}{0}
+	\addcontentsline{toc}{subsubsection}{\protect{\large{Part \thequestion.\thesubquestion}}}
+}{
+	\par
+	\vspace{1em}
+}
+
+\makeatother
+
+\makeatletter
+
+\newcounter{step}
+\renewcommand{\thestep}{\Roman{step}}
+
+\newenvironment{step}{
+	\refstepcounter{step}
+	\vspace{1.5em}\par\noindent\large\textbf{(\thestep)}
+}{
+	\par
+	\vspace{1.5em}
+}
+
+\makeatother
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand{\arraystretch}{1.8}
+
+\fontsize{10pt}{14pt}\selectfont
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\begin{question}
+	Show that:
+\end{question}
+
+\begin{subquestion}
+	$(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)$ for all
+	$\alpha, \beta, \lambda \in \mathbb{C}$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{subquestion}
+	$(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)$ for all
+	$\alpha, \beta, \lambda \in \mathbb{Z} / 2\mathbb{Z}$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Show that:
+\end{question}
+
+\begin{subquestion}
+	$\lambda(\alpha + \beta) = \lambda\alpha + \lambda\beta$ for all
+	$\lambda, \alpha, \beta \in \mathbb{C}$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{subquestion}
+	$\lambda(\alpha + \beta) = \lambda\alpha + \lambda\beta$ for all
+	$\lambda, \alpha, \beta \in \mathbb{Z} / 2\mathbb{Z}$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Show that:
+\end{question}
+
+\begin{subquestion}
+	For every $\alpha \in \mathbb{C}$ with $\alpha \neq 0$, there exists a
+	unique $\beta \in \mathbb{C}$ such that $\alpha\beta = 1$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{subquestion}
+	For every $\alpha \in \mathbb{Z} / 2\mathbb{Z}$ with
+	$\alpha \neq 0$, there exists a unique $\beta \in \mathbb{C}$ such that
+	$\alpha\beta = 1$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Show that $(ab)x = a(bx)$ for all $x \in \mathbb{F}^n$, where
+	$\mathbb{F}$ is any field.
+\end{question}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Show that $(\alpha + \beta)x = \alpha{x} + \beta{x}$ for all $a, b \in
+	\mathbb{F}$ and all $x \in \mathbb{F}^n$, where $\mathbb{F}$ is any
+	field.
+\end{question}
+
+\begin{solution}
+
+\end{solution}
+
+\end{document}
