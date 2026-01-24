@@ -1,0 +1,228 @@
+\documentclass[10pt]{article}
+\usepackage{braket}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{mathtools}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.text}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xltabular}
+\usepackage{color}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\title{MATH 2R03 - Assignment 2}
+\author{Matthew Farah, \href{mailto:farahm11@mcmaster.ca}{$\langle$farahm11@mcmaster.ca$\rangle$}, 400468251}
+\date{\today}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=blue,
+	citecolor=blue,
+	anchorcolor=blue
+}
+
+\fancyhead{}
+\fancyhead[L]{Matthew Farah, \href{mailto:farahm11@mcmaster.ca}{$\langle$farahm11@mcmaster.ca$\rangle$}, 400468251}
+\fancyhead[R]{MATH 2R03 - Assignment 2}
+
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\degree}{deg}
+
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+
+\newcommand{\comment}[1]{\parbox[t]{0.45\textwidth}{\raggedright #1}}
+
+\setlength{\parindent}{0cm}
+
+\setcounter{tocdepth}{3}
+\hypersetup{bookmarksopen=true, bookmarksopenlevel=2, bookmarksdepth=3}
+
+\newcounter{chapter}
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\newenvironment{chaptertitle}{
+	\newpage
+	\refstepcounter{chapter}
+	\begin{center}
+	\vspace*{.5em}
+	\par
+	\Large
+	Part \thechapter
+	\phantomsection
+	\addcontentsline{toc}{section}{\protect{\large{Part \thechapter}}}
+}{
+	\end{center}
+	\vspace{2.5em}
+}
+
+\newcounter{question}
+\renewcommand{\thequestion}{\arabic{question}}
+
+\newenvironment{question}{
+	\refstepcounter{question}
+	\phantomsection
+	\addcontentsline{toc}{subsection}{\protect{\large{Question \thequestion}}}
+	\vspace{1em}
+	\par
+	\large\textbf{Question \thequestion}
+	\vspace{.2cm}
+	\par
+	\setcounter{subquestion}{0}
+	\setcounter{step}{0}
+}{\vspace{.5em}}
+
+\newenvironment{solution}{
+	\vspace{1em}\par\large\textbf{{Solution:}}\par\vspace{1em}
+}{
+	\vspace{1em}
+	\newpage
+}
+
+\newcounter{subquestion}
+\renewcommand{\thesubquestion}{\alph{subquestion}}
+
+\newenvironment{subquestion}{
+	\refstepcounter{subquestion}
+	\phantomsection
+	\vspace{1em}\par\large\textbf{(\thesubquestion)}\hspace{-.5em}
+	\setcounter{step}{0}
+	\addcontentsline{toc}{subsubsection}{\protect{\large{Part \thequestion.\thesubquestion}}}
+}{
+	\par
+	\vspace{1em}
+}
+
+\makeatother
+
+\makeatletter
+
+\newcounter{step}
+\renewcommand{\thestep}{\Roman{step}}
+
+\newenvironment{step}{
+	\refstepcounter{step}
+	\vspace{1.5em}\par\noindent\large\textbf{(\thestep)}
+}{
+	\par
+	\vspace{1.5em}
+}
+
+\makeatother
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand{\arraystretch}{1.8}
+
+\fontsize{10pt}{14pt}\selectfont
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\begin{question}
+	Let $V$ be a vector space over a field $\mathbb{F}$, and let $v_1, \ldots, v_m$ be a list of vectors in $V$. For $k = 1, \ldots, m$ set $w_k \coloneq v_1 + \ldots + v_k$. Show that $\spn(w_1, \ldots, w_m) = \spn(v_1, \ldots, v_m)$.
+\end{question}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Prove or give a counterexample: $v_1, \ldots, v_m$ is a linearly independent list of vectors in $V$, then $5v_1 - 4v_2, v_2, \ldots, v_m$ is linearly independent.
+\end{question}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Let $v_1, \ldots, v_m$ be a linearly independent list of vectors in $V$, and let $w \in V$. Show that if the list $v_1, \ldots, v_m, w$ is a linearly independent list if and only if $w \notin \spn(v_1, \ldots, v_m)$.
+\end{question}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Let $\mathbb{F}$ be a field. For $n \in \mathbb{N}$, let:
+
+	\begin{gather*}
+		\mathbb{F}{[x]}_n \coloneq \set{p \in \mathbb{F}[x] \colon \degree(p) \le n}
+	\end{gather*}
+\end{question}
+
+\begin{subquestion}
+	Prove that $\mathbb{F}{[x]}_n$ is a subspace of $\mathbb{F}[x]$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{subquestion}
+	Explain why there does not exist a list of six polynomials that is linearly independent in $\mathbb{F}{[x]}_4$
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{subquestion}
+	Explain why no list of four polynomials spans $\mathbb{F}{[x]}_4$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{question}
+	Consider the set $F_3 \coloneq \set{0, 1, 2}$ together with the addition $a \oplus b \coloneq (a + b) \mod 3$ and the multiplication $a \otimes b \coloneq (ab) \mod 3$.
+\end{question}
+
+\begin{subquestion}
+	Verify that $\oplus$ and $\otimes$ satisfy the field axioms; only submit here the proof of distributivity.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{subquestion}
+	List all functions in the vector space ${F_3}^{F_3}$ (how many are there?), and determine which of these are polynomial functions.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{subquestion}
+	Give a linearly independent list of polynomial functions that spans $\mathcal{P}(F_3)$.
+\end{subquestion}
+
+\begin{solution}
+
+\end{solution}
+
+
+
+
+
+
+
+
+
+\end{document}
