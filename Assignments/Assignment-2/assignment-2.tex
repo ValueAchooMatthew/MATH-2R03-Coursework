@@ -176,23 +176,44 @@
 		\lambda_1{v_1} + \ldots + \lambda_{m}{v_m} = u \\
 	\end{gather*}
 
-	Now, let $\alpha_k \in \mathbb{F}$ such that $\alpha_m = \lambda_m, \alpha_{m - 1} = \lambda_{m - 1} - \lambda_{m}, \ldots, \alpha_1 = \lambda_1 - \lambda_2 - \ldots \lambda_m$. By definition of $w_k$, we have that:
+	Or in other words:
+
+	\begin{gather*}
+		\sum_{k = 1}^{m}\lambda_{k}{v_k} = u \\
+	\end{gather*}
+
+	Now, let $\alpha_k \in \mathbb{F}$ such that $\alpha_m \coloneq \lambda_m$ and $\alpha_k \coloneq \lambda_k - \lambda_{k + 1}$ for all $1 \le k < m$. (Thus, $\alpha_m = \lambda_m, \alpha_{m - 1} = \lambda_{m - 1} - \lambda_{m}, \ldots, \alpha_1 = \lambda_1 - \lambda_2$). Now, we know that, for all $1 \le k < m$:
 
 	\begin{align*}
-		\alpha_1{w_1} + \ldots + \alpha_m{w_m} &= \alpha_1{v_1} + \ldots + \alpha_m(v_1 + \ldots + v_m) \\
-		&= \alpha_1{v_1} + \ldots + \alpha_m{v_1} + \ldots + \alpha_m{v_m} \\
+		\alpha_{k}{w_k} &= \alpha_{k}(v_1 + \ldots + v_k) \\
+		&= (\lambda_k - \lambda_{k + 1})(v_1 + \ldots + v_k) \\
+		&= (\lambda_k - \lambda_{k + 1})\sum_{i = 1}^{k}(v_i) \\
 	\end{align*}
 
-	And by our construction of $\alpha_k$, we have that:
-
-	%TODO: Tighten up proof a bit
+	This therefore means that:
 
 	\begin{align*}
-		\alpha_1{v_1} + \ldots + \alpha_m{v_1} + \ldots + \alpha_m{v_m} &= (\lambda_1 - \ldots - \lambda_m)v_{1} + \ldots + \lambda_{m}{v_1} + \ldots + \lambda_{m}{v_m} \\
-		&= \lambda_1{v_1} - \ldots - \lambda_m{v_1} + \ldots + \lambda_m{v_1} + \ldots + \lambda_m{v_m} \\
-		&= \lambda_1{v_1} + \ldots + \lambda_m{v_m} \\
-		&= u \\
+		\alpha_{1}w_1 + \ldots + \alpha_{m}w_m &= \sum_{k = 1}^{m - 1}\alpha_{k}w_k + \alpha_{m}w_m \\
+		&= \sum_{k = 1}^{m - 1}\left((\lambda_k - \lambda_{k + 1})\left(\sum_{i = 1}^{k}(v_i) \right) \right) + \alpha_{m}w_m \\
+		&= \sum_{k = 1}^{m - 1}\left( \lambda_k \sum_{i = 1}^{k}(v_i) - \lambda_{k + 1}\sum_{i = 1}^{k}(v_i) \right) + \alpha_{m}w_m \\
+		&= \sum_{k = 1}^{m - 1}\left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 1}^{m - 1} \left( \lambda_{k - 1} \sum_{i = 1}^{k}(v_i) \right) + \alpha_{m}w_m \\
+		&= \sum_{k = 1}^{m - 1}\left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 2}^{m} \left( \lambda_{k} \sum_{i = 1}^{k - 1}(v_i) \right) + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 2}^{m} \left( \lambda_k \sum_{i = 1}^{k - 1}(v_i) \right) + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 1}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 2}^{m - 1}\left( \sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{i = 1}^{m - 1}(v_i) + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) - \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{k = 1}^{m - 1}v_i + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_{k}v_k + \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) - \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{k = 1}^{m - 1} + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_{k}v_k \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \alpha_{m}w_m \\
+		&= \sum_{k = 1}^{m - 1} \left( \lambda_{k}v_k \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \lambda_{m}\sum_{i = 1}^{m}(v_i) \\
+		&= \sum_{k = 1}^{m - 1} \left( \lambda_{k}v_k \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \lambda_{m}\sum_{i = 1}^{m - 1}(v_i) + \lambda_{m}v_m \\
+		&= \sum_{k = 1}^{m - 1} \left( \lambda_{k}v_k \right) + \lambda_{m}v_m \\
+		&= \sum_{k = 1}^{m} \left( \lambda_{k}v_k \right) \\
 	\end{align*}
+
+	And since $\sum_{k = 1}^{m} \left( \lambda_{k}v_k \right) = u$ as stated prior, we have that:
+
+	\begin{gather*}
+		\alpha_{1}w_1 + \ldots + \alpha_{m}w_m = u \\
+	\end{gather*}
 
 	And thus $u \in \spn(w_1, \ldots, w_m)$. Therefore, $\spn(v_1, \ldots, v_m) \subseteq \spn(w_1, \ldots, w_2)$. \\
 
@@ -293,7 +314,27 @@
 \end{subquestion}
 
 \begin{solution}
+	By definition of subspaces, for $\mathbb{F}[x]_n$ to be a subspace of $\mathbb{F}[x]$, then $0 \in \mathbb{F}[x] \cap \mathbb{F}[x]_n$, $a, b \in \mathbb{F}[x]_n \implies a + b \in \mathbb{F}[x]_n$, and $a \in \mathbb{F}[x]_n \implies \forall \lambda \in \mathbb{F}, \lambda{a} \in \mathbb{F}[x]_n$. We will prove each of these claims separately.
 
+	\begin{step}
+		Prove $0 \in \mathbb{F}[x] \cap \mathbb{F}[x]_n$.
+	\end{step}
+
+	Since $0$ is polynomial and for any polynomial $p$, $p + 0 = p$, we know that 0 must be the additive identity of $\mathbb{F}[x]$ and hence $0 \in \mathbb{F}[x]$. The degree of the $0$ polynomial is evidently 0, and since $n \in \mathbb{N} \implies n \ge 0$, $0 \in \mathbb{F}[x]_n$.
+
+	\begin{step}
+		Prove $a, b \in \mathbb{F}[x]_n \implies a + B \mathbb{F}[x]_n$.
+	\end{step}
+	
+	Let $\alpha, \beta = \degree(a), \degree(b)$ respectively. By the construction of $\mathbb{F}[x]_n$, we know that $\alpha, \beta \le n$. By lemma 2.2 presented in lecture 6, we know that $\degree(a + b) \le \max\set{\alpha, \beta}$. But since $\alpha, \beta \le n$, we have that $\degree(a + b) \le \max{\alpha, \beta} \le \max{n, n} = n$. Thus, $a + b \in \mathbb{F}[x]_n$.
+
+	\begin{step}
+		Prove $a \in \mathbb{F}[x]_n \implies \forall \lambda \in \mathbb{F}, \lambda{a} \in \mathbb{F}[x]_n$.
+	\end{step}
+
+	Let $\alpha = \degree(p)$ and let $\lambda \in \mathbb{F}$ be arbitrary. By the construction of $\mathbb{F}[x]_n$, we know that $\alpha \le n$. By lemma 2.1 presented in lecture 6, we know that $\degree(\lambda{a}) \le \degree(a) = \alpha$, however since $\alpha \le n$, we have that $\degree(\lambda{a}) \le \degree(a) = \alpha \le n$. Thus, $\lambda{a} \in \mathbb{F}[x]_n$.
+
+	Therefore, $\mathbb{F}[x]_n$ is a subspace of $\mathbb{F}[x]$.
 \end{solution}
 
 \begin{subquestion}
@@ -301,8 +342,7 @@
 \end{subquestion}
 
 \begin{solution}
-	%TODO: Clean up a bit
-	We know that any list of six polynomials cannot be a linearly independent list in $\mathbb{F}{[x]}_4$ since a list of five polynomials forms a basis of $\mathbb{F}{[x]}_4$, and hence any list of six vectors in $\mathbb{F}{[x]}_4$ cannot be linearly independent.
+	We know that the standard basis of $\mathbb{F}[x]_4$ is given by $\left( 1, \; x, \; x^2, \; x^3, \; x^4 \right)$ which is a list of length five. Since, for any vector space, any list with more vectors than any of its bases cannot be linearly independent, we therefore know that any list of six polynomials cannot be linearly independent in $\mathbb{F}[x]_4$
 \end{solution}
 
 \begin{subquestion}
@@ -310,8 +350,7 @@
 \end{subquestion}
 
 \begin{solution}
-	%TODO: Clean up a bit
-	We know that any list of four polynomials cannot span $\mathbb{F}{[x]}_4$ since a list of five polynomials forms a basis of $\mathbb{F}{[x]}_4$, and hence any list of four vectors cannot span $\mathbb{F}{[x]}_4$.
+	We know that the standard basis of $\mathbb{F}[x]_4$ is given by $\left( 1, \; x, \; x^2, \; x^3, \; x^4 \right)$ which is a list of length five. Since, for any vector space, any list with fewer vectors than any of its bases cannot span the space, we therefore know that any list of four polynomials cannot span $\mathbb{F}[x]_4$.
 \end{solution}
 
 \begin{question}
@@ -323,7 +362,18 @@
 \end{subquestion}
 
 \begin{solution}
+	Let $a, b, c \in F_3$. To prove that $\oplus$ and $\otimes$ are distributive. We must show that $a \otimes (b \oplus c) = a \otimes b \oplus a \otimes c$.
 
+	\begin{alignat*}{2}
+		a \otimes (b \oplus c) &= a \otimes ((b + c) \mod 3) && \qquad \comment{By definition of $\oplus$} \\
+		&= a((b + c) \mod 3) \mod 3 && \qquad \comment{By definition of $\otimes$} \\
+		&= ((a(b \mod 3)) + (a(c \mod 3))) \mod 3 && \qquad \comment{By distributivity of modulo} \\
+		&= (((ab) \mod 3) + ((ac) \mod 3)) \mod 3 && \qquad \comment{By property of modulo over multiplication} \\
+		&= ((a \otimes b) + (a \otimes c)) \mod 3 && \qquad \comment{By definition of $\otimes$} \\
+		&= (a \otimes b) \oplus (a \otimes c) && \qquad \comment{By definition of $\oplus$} \\
+	\end{alignat*}
+
+	
 \end{solution}
 
 \begin{subquestion}
@@ -396,15 +446,12 @@
 \end{subquestion}
 
 \begin{solution}
+	%TODO: Email TA about this
+	$b = 0, 1, 2$ 
 
+	$p = a_0 + a_1x + \ldots + a_n{x^n}, a_i \in {0, 1, 2}$.
+	$\forall g \in \mathcal{P}(F_3), \forall b \in {0, 1, 2}$.
+	$g(b) = p(b) \coloneq a_0 + a_1(b) + \ldots (a_n)(b)^n$.
 \end{solution}
-
-
-
-
-
-
-
-
 
 \end{document}
