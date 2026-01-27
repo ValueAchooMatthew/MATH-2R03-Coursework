@@ -199,9 +199,9 @@
 		&= \sum_{k = 1}^{m - 1}\left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 1}^{m - 1} \left( \lambda_{k - 1} \sum_{i = 1}^{k}(v_i) \right) + \alpha_{m}w_m \\
 		&= \sum_{k = 1}^{m - 1}\left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 2}^{m} \left( \lambda_{k} \sum_{i = 1}^{k - 1}(v_i) \right) + \alpha_{m}w_m \\
 		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 2}^{m} \left( \lambda_k \sum_{i = 1}^{k - 1}(v_i) \right) + \alpha_{m}w_m \\
-		&= \lambda_{1}v_1 + \sum_{k = 1}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 2}^{m - 1}\left( \sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{i = 1}^{m - 1}(v_i) + \alpha_{m}w_m \\
-		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) - \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{k = 1}^{m - 1}v_i + \alpha_{m}w_m \\
-		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_{k}v_k + \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) - \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{k = 1}^{m - 1} + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 1}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) \right) - \sum_{k = 2}^{m - 1}\left(\lambda_{k}\sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{i = 1}^{m - 1}(v_i) + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_k \sum_{i = 1}^{k}(v_i) - \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \alpha_{m}w_m \\
+		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_{k}v_k + \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) - \lambda_{k}\sum_{i = 1}^{k - 1}(v_i) \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \alpha_{m}w_m \\
 		&= \lambda_{1}v_1 + \sum_{k = 2}^{m - 1} \left( \lambda_{k}v_k \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \alpha_{m}w_m \\
 		&= \sum_{k = 1}^{m - 1} \left( \lambda_{k}v_k \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \lambda_{m}\sum_{i = 1}^{m}(v_i) \\
 		&= \sum_{k = 1}^{m - 1} \left( \lambda_{k}v_k \right) - \lambda_{m}\sum_{k = 1}^{m - 1}(v_i) + \lambda_{m}\sum_{i = 1}^{m - 1}(v_i) + \lambda_{m}v_m \\
