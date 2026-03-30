@@ -1,0 +1,297 @@
+\ifdefined\iscombined
+	\lecturetitle{Introduction}
+\else
+\documentclass{article}
+\usepackage{xparse}
+\usepackage{changepage}
+\usepackage{listings}
+\usepackage{amsthm}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{amsfonts}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\date{
+	\vspace{-.75em}
+	{\large \today}
+}
+
+\title{
+	\vspace*{-1.5em}
+	{\Huge Lecture 1} \\
+	\vspace{-1em}
+	\rule{\textwidth/4}{.01em} \\
+	\vspace{-.25em}
+	{\Large Introduction}
+	\vspace{-.75em}
+}
+
+\author{
+	{\large Matthew Farah}
+}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=blue,
+	citecolor=blue,
+	anchorcolor=blue
+}
+
+\fancyhead{}
+\fancyhead[L]{\today}
+\fancyhead[R]{Lecture 1 - Introduction}
+
+\setlength{\parindent}{0cm}
+
+\newcounter{example}
+\renewcommand{\theexample}{\arabic{example}}
+
+\newenvironment{example}[1][]{
+	\refstepcounter{example}
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{\ifx&#1&Example \theexample:\else Example \theexample \ (#1):\fi}
+	\ignorespaces
+}{
+	\vspace{.5em}
+	\end{adjustwidth}
+}
+
+\newenvironment{solution}{
+	\vspace{.5em}
+	\par
+	\begin{adjustwidth}{1.5em}{}
+	\textbf{{Solution:}}
+	\par
+	\vspace{.5em}
+}{
+	\vspace{1em}
+	\end{adjustwidth}
+}
+
+\newcounter{subexample}
+\renewcommand{\thesubexample}{\alph{subexample}}
+
+\newenvironment{subexample}{
+	\setcounter{step}{0}
+	\refstepcounter{subexample}
+	\vspace{1em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{(\thesubexample)}
+	\ignorespaces
+}{
+	\par
+	\vspace{1em}
+	\end{adjustwidth}
+}
+
+\renewenvironment{proof}{
+	\vspace{.5em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\emph{Proof:}\par\vspace{1em}
+	\setlength{\parindent}{0cm}
+}{
+	\end{adjustwidth}
+}
+
+\newtheorem{theorem}{Theorem}
+
+\renewenvironment{theorem}[1][]{
+	\refstepcounter{theorem}
+	\vspace{1em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{\ifx&#1&Theorem \thetheorem:\else Theorem \thetheorem \ (#1):\fi}
+	\ignorespaces
+}{
+	\vspace{.5em}
+	\end{adjustwidth}
+}
+
+\newtheorem{lemma}{Lemma}
+
+\renewenvironment{lemma}[1][]{
+	\refstepcounter{lemma}
+	\vspace{1em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{\ifx&#1&Lemma \thelemma:\else Lemma \thelemma \ (#1):\fi}
+	\ignorespaces
+}{
+	\vspace{.5em}
+	\end{adjustwidth}
+}
+
+\newcounter{definition}
+\renewcommand{\thedefinition}{\arabic{definition}}
+
+\newenvironment{definition}[1][]{
+	\refstepcounter{definition}
+	\vspace{1em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{\ifx&#1&Definition \thedefinition:\else Definition \thedefinition \ (#1):\fi}
+	\ignorespaces
+}{
+	\vspace{.5em}
+	\end{adjustwidth}
+}
+
+\newcounter{corollary}
+\renewcommand{\thecorollary}{\arabic{corollary}}
+
+\newenvironment{corollary}[1][]{
+	\refstepcounter{corollary}
+	\vspace{1em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{\ifx&#1&Corollary \thecorollary:\else Corollary \thecorollary \ (#1):\fi}
+	\ignorespaces
+}{
+	\vspace{.5em}
+	\end{adjustwidth}
+}
+
+\newcounter{proposition}
+\renewcommand{\theproposition}{\arabic{proposition}}
+
+\newenvironment{proposition}[1][]{
+	\refstepcounter{proposition}
+	\vspace{1em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{\ifx&#1&Proposition \theproposition:\else Proposition \theproposition \ (#1):\fi}
+	\ignorespaces
+}{
+	\vspace{.5em}
+	\end{adjustwidth}
+}
+
+\newenvironment{remark}{
+	\vspace{.5em}\par\noindent
+	\begin{adjustwidth}{1.5em}{}
+	\noindent\textbf{Remark:}
+	\ignorespaces
+}{
+	\vspace{.5em}
+	\end{adjustwidth}
+}
+
+\makeatother
+\makeatletter
+
+\newcounter{step}
+\renewcommand{\thestep}{\Roman{step}}
+
+\newenvironment{step}{
+	\refstepcounter{step}
+	\vspace{1em}\par\noindent
+	\ignorespaces\noindent\textbf{(\thestep)}
+	\ignorespaces
+}{
+	\par
+}
+
+\sectionfont{\fontsize{12}{12}\bfseries}
+\subsectionfont{\fontsize{10}{12}\normalfont}
+\subsubsectionfont{\fontsize{10}{12}\normalfont}
+
+\begin{document}
+
+\maketitle
+\pagestyle{fancy}
+
+\fi
+
+\begin{definition}
+	A set $\mathbb{F}$ is called a field if $\mathbb{F}$ has:
+	\begin{enumerate}
+		\item A zero element (denoted 0).
+		\item A one element (denoted 1).
+		\item A defined notion of addition on elements of the set.
+		\item A defined notion of multiplication on elements of the set. \\
+	\end{enumerate}
+	
+	The addition and multiplication on $\mathbb{F}$ must satisfy, for all $a, b, c \in \mathbb{F}$:
+	\begin{enumerate}
+		\item Commutativity.
+		\begin{itemize}
+			\item $a + b = b + a$
+			\item $ab = ba$.
+		\end{itemize}
+		\item Associativity.
+		\begin{itemize}
+			\item $(a + b) + c = a + (b + c)$ 
+			\item $(ab)c = a(bc)$.
+		\end{itemize}
+		\item Distributivity over addition.
+		\begin{itemize}
+			\item $a(b + c) = ab + ac$. \\
+		\end{itemize}
+	\end{enumerate}
+
+	As well, addition and multiplication on $\mathbb{F}$ must:
+	\begin{enumerate}
+		\item Have an identity element (0 and 1 respectively) such that for all $a \in \mathbb{F}$.
+		\begin{itemize}
+			\item $a + 0 = 0 + a = a$
+			\item $1 \cdot a = a \cdot 1 = a$.
+		\end{itemize}
+		\item Have an inverse element.
+		\begin{itemize}
+			\item $\forall a \in \mathbb{F}, \exists b \in \mathbb{F}$ such that $a + b = 0$
+			\item $\forall a \in \mathbb{F} \setminus \set{0}, \exists b \in \mathbb{F}$ such that $a b = 1$
+		\end{itemize}
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	Is the set of all natural numbers ($\mathbb{N}$) a field?
+\end{example}
+
+\begin{solution}
+	No! There does not exist an element $a \in \mathbb{N}$ such that $1 + a = 0$. In other words, no elements besides 0 in $\mathbb{N}$ have an additive inverse.
+\end{solution}
+
+\begin{example}
+	Is the set of all integers ($\mathbb{Z}$) a field?
+\end{example}
+
+\begin{solution}
+	No! There does not exist an element $a \in \mathbb{Z}$ such that $2a = 1$. In other words, no elements besides 1 in $\mathbb{Z}$ have a multiplicative inverse.
+\end{solution}
+
+\begin{example}
+	Is the set of all rational numbers ($\mathbb{Q}$) a field?
+\end{example}
+
+%TODO: Give proper proof of this.
+\begin{solution}
+	Yes!
+\end{solution}
+
+\begin{example}
+	Is the set of all real numbers ($\mathbb{R}$) a field?
+\end{example}
+
+\begin{solution}
+	Yes! Although the proof is quite complicated. In many undergraduate courses, $\mathbb{R}$ is often defined axiomatically as a complete, ordered field.
+\end{solution}
+
+\begin{example}
+	Is the set of all complex numbers ($\mathbb{C}$) a field?
+\end{example}
+
+%TODO: Give proper proof of this.
+\begin{solution}
+	Yes!
+\end{solution}
+
+\ifdefined\iscombined
+	\newpage
+\else
+	\end{document}
+\fi
