@@ -323,7 +323,7 @@
 	Since $0$ is polynomial and for any polynomial $p$, $p + 0 = p$, we know that 0 must be the additive identity of $\mathbb{F}[x]$ and hence $0 \in \mathbb{F}[x]$. The degree of the $0$ polynomial is evidently 0, and since $n \in \mathbb{N} \implies n \ge 0$, $0 \in \mathbb{F}[x]_n$.
 
 	\begin{step}
-		Prove $a, b \in \mathbb{F}[x]_n \implies a + B \mathbb{F}[x]_n$.
+		Prove $a, b \in \mathbb{F}[x]_n \implies (a + b) \in \mathbb{F}[x]_n$.
 	\end{step}
 	
 	Let $\alpha, \beta = \degree(a), \degree(b)$ respectively. By the construction of $\mathbb{F}[x]_n$, we know that $\alpha, \beta \le n$. By lemma 2.2 presented in lecture 6, we know that $\degree(a + b) \le \max\set{\alpha, \beta}$. But since $\alpha, \beta \le n$, we have that $\degree(a + b) \le \max{\alpha, \beta} \le \max{n, n} = n$. Thus, $a + b \in \mathbb{F}[x]_n$.
@@ -446,12 +446,17 @@
 \end{subquestion}
 
 \begin{solution}
-	%TODO: Email TA about this
-	$b = 0, 1, 2$ 
+	We know that two polynomial functions $p, q \in \mathcal{P}(F_3)$ are equivalent if $\forall x \in F_3, p(x) = q(x)$. Therefore, we know that there are only 27 unique polynomial functions, since $P(F_3) = {F_3}^{F_3}$ as determined in the previous question. \\
 
-	$p = a_0 + a_1x + \ldots + a_n{x^n}, a_i \in {0, 1, 2}$.
-	$\forall g \in \mathcal{P}(F_3), \forall b \in {0, 1, 2}$.
-	$g(b) = p(b) \coloneq a_0 + a_1(b) + \ldots (a_n)(b)^n$.
+	Since every one of these polynomial functions $p$ can be described by the three-tuple $(a, b, c)$, where $p(0) = a, p(1) = b, p(2) = c$, and since we know that $(1, 0, 0), (0, 1, 0), (0, 0, 1)$ are a list of independent vectors in $\mathcal{P}(F_3)$ which span all such $(a, b, c)$, they must all span $\mathcal{P}(F_3)$, and so the polynomial functions they correspond to must constitute a list of vectors which span $\mathcal{P}(F_3)$. Therefore, the polynomial functions:
+
+	\begin{align*}
+		p_1(x) &= \frac{1}{2}(x - 1)(x - 2) \\
+		p_2(x) &= -(x)(x - 2) \\
+		p_3(x) &= \frac{1}{2}(x)(x - 1) \\
+	\end{align*}
+
+	Constitute an independent list of vectors $p_1, p_2, p_3$ which span $\mathcal{P}(F_3)$.
 \end{solution}
 
 \end{document}
